@@ -1,5 +1,7 @@
 const canvas = document.getElementById("myCanvas");
 const ctx = canvas.getContext("2d");
+const leftField = document.querySelector(".leftField");
+const rightField = document.querySelector(".rightField");
 
 let x = canvas.width/2;
 let y = canvas.height-30;
@@ -86,19 +88,28 @@ function keyUpHandler(event) {
     }
 }
 
-function handleStart() {
-    rightPressed = true;
+function handleLeftStart() {
+    leftPressed = true;
+}
+
+function handleLeftEnd() {
     leftPressed = false;
 }
 
-function handleEnd() {
+function handleRightStart() {
+    rightPressed = true;
+}
+
+function handleRightEnd() {
     rightPressed = false;
-    leftPressed = true;
 }
 
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
-document.addEventListener("touchstart", handleStart, false);
-document.addEventListener("touchend", handleEnd, false);
+leftField.addEventListener("touchstart", handleLeftStart, false);
+leftField.addEventListener("touchend", handleLeftEnd, false);
+
+rightField.addEventListener("touchstart", handleRightStart, false);
+rightField.addEventListener("touchend", handleRightEnd, false);
 
 setInterval(draw, 10);
