@@ -58,7 +58,7 @@ function draw() {
             SPEED += 0.2;
             console.log(SPEED);
         } else {
-            alert("GAME OVER");
+            // alert("GAME OVER");
             document.location.reload();
         }
     }
