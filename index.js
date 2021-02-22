@@ -86,7 +86,17 @@ function keyUpHandler(event) {
     }
 }
 
+function handleStart() {
+    rightPressed = true;
+}
+
+function handleEnd() {
+    leftPressed = true;
+}
+
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
+canvas.addEventListener("touchstart", handleStart, false);
+canvas.addEventListener("touchend", handleEnd, false);
 
 setInterval(draw, 10);
