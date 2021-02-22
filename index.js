@@ -88,9 +88,11 @@ function keyUpHandler(event) {
 
 function handleStart() {
     rightPressed = true;
+    leftPressed = false;
 }
 
 function handleEnd() {
+    rightPressed = false;
     leftPressed = true;
 }
 
