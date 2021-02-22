@@ -98,7 +98,7 @@ function handleEnd() {
 
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
-canvas.addEventListener("touchstart", handleStart, false);
-canvas.addEventListener("touchend", handleEnd, false);
+document.addEventListener("touchstart", handleStart, false);
+document.addEventListener("touchend", handleEnd, false);
 
 setInterval(draw, 10);
