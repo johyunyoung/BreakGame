@@ -20,6 +20,7 @@ let brickHeight = 20;
 let brickPadding = 10;
 let brickOffsetTop = 30;
 let brickOffsetLeft = 30;
+let score = 0;
 
 let bricks = [];
 for(let c = 0; c < brickColumnCount; c++) {
@@ -54,10 +55,17 @@ function collisionDetection() {
                     dy = -dy;
                     b.status = 0;
                     changePaddleColor();
+                    score++;
                 }
             }
         }
     }
+}
+
+function drawScore() {
+    ctx.font = "16px Arial";
+    ctx.fillStyle = "#0095DD";
+    ctx.fillText("Score: " + score, 8, 20);
 }
 
 function drawBricks() {
@@ -99,6 +107,7 @@ function draw() {
     drawBricks();
     drawBall();
     drawPaddle();
+    drawScore();
     collisionDetection();
     x += dx * SPEED;
     y += dy * SPEED;
