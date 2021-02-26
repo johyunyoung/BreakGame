@@ -11,7 +11,7 @@ let dx = Math.random() + 2;
 let dy = -Math.random() * 2 - 1;
 const ballRadius = 10;
 const paddleHeight = 10;
-const paddleWidth = 75;
+let paddleWidth = 175;
 let paddleX = (canvas.width-paddleWidth)/2;
 let rightPressed = false;
 let leftPressed = false;
@@ -71,6 +71,10 @@ function collisionDetection() {
                             }
                         }
                         stage++;
+                        paddleWidth -= 20
+                        if(paddlewidth < 65) {
+                            paddlewidth += paddlewidth;
+                        }
                     }
                 }
             }
