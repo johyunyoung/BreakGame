@@ -59,7 +59,7 @@ function collisionDetection() {
                     b.status = 0;
                     changePaddleColor();
                     score++;
-                    if(score * stage == brickColumnCount * brickRowCount){
+                    if(score / stage == brickColumnCount * brickRowCount){
                         for(let c = 0; c < brickColumnCount; c++) {
                             bricks[c] = [];
                             for(let r = 0; r < brickRowCount; r++) {
@@ -70,6 +70,9 @@ function collisionDetection() {
                                 };
                             }
                         }
+                        x = canvas.width/2;
+                        y = canvas.height-30;
+                        if(dy > 0) dy *= -1;
                         stage++;
                         paddleWidth -= 20
                         if(paddlewidth < 65) {
@@ -144,7 +147,9 @@ function draw() {
         if(x > paddleX && x < paddleX + paddleWidth) {
             dy = -dy;
             changeBallColor();
-            SPEED += 0.05;
+            if(SPEED < 2.25){
+                SPEED += 0.05;
+            }
             console.log(SPEED);
         } else {
             // alert("GAME OVER");
