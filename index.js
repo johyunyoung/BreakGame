@@ -3,6 +3,8 @@ const ctx = canvas.getContext("2d");
 const leftField = document.querySelector(".leftField");
 const rightField = document.querySelector(".rightField");
 
+const isMobile = /Mobi/i.test(window.navigator.userAgent);
+
 let x = canvas.width/2;
 let y = canvas.height-30;
 let dx = Math.random() * 6 - 3;
@@ -171,6 +173,11 @@ function handleRightEnd() {
     rightPressed = false;
 }
 
+if(isMobile) {
+    canvas.style.width = "100%";
+}
+
+
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
 leftField.addEventListener("touchstart", handleLeftStart, false);
@@ -178,5 +185,6 @@ leftField.addEventListener("touchend", handleLeftEnd, false);
 
 rightField.addEventListener("touchstart", handleRightStart, false);
 rightField.addEventListener("touchend", handleRightEnd, false);
+
 
 setInterval(draw, 10);
