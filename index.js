@@ -7,7 +7,7 @@ const isMobile = /Mobi/i.test(window.navigator.userAgent);
 
 let x = canvas.width/2;
 let y = canvas.height-30;
-let dx = Math.random() * 6 - 3;
+let dx = Math.random() + 2;
 let dy = -Math.random() * 2 - 1;
 const ballRadius = 10;
 const paddleHeight = 10;
@@ -23,6 +23,7 @@ let brickPadding = 10;
 let brickOffsetTop = 30;
 let brickOffsetLeft = 30;
 let score = 0;
+let stage = 1;
 
 let bricks = [];
 for(let c = 0; c < brickColumnCount; c++) {
@@ -58,6 +59,19 @@ function collisionDetection() {
                     b.status = 0;
                     changePaddleColor();
                     score++;
+                    if(score * stage == brickColumnCount * brickRowCount){
+                        for(let c = 0; c < brickColumnCount; c++) {
+                            bricks[c] = [];
+                            for(let r = 0; r < brickRowCount; r++) {
+                                bricks[c][r] = {
+                                    x: 0,
+                                    y: 0,
+                                    status: 1
+                                };
+                            }
+                        }
+                        stage++;
+                    }
                 }
             }
         }
