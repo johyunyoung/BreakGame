@@ -140,7 +140,7 @@ function draw() {
         if(x > paddleX && x < paddleX + paddleWidth) {
             dy = -dy;
             changeBallColor();
-            SPEED += 0.1;
+            SPEED += 0.05;
             console.log(SPEED);
         } else {
             // alert("GAME OVER");
