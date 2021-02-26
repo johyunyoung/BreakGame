@@ -73,6 +73,7 @@ function collisionDetection() {
                         x = canvas.width/2;
                         y = canvas.height-30;
                         if(dy > 0) dy *= -1;
+                        dx = Math.random() + 2;
                         stage++;
                         paddleWidth -= 20
                         if(paddlewidth < 65) {
@@ -147,7 +148,7 @@ function draw() {
         if(x > paddleX && x < paddleX + paddleWidth) {
             dy = -dy;
             changeBallColor();
-            if(SPEED < 2.25){
+            if(SPEED < 2.2){
                 SPEED += 0.05;
             }
             console.log(SPEED);
