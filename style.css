@@ -10,25 +10,25 @@ canvas {
 }
 
 .field {
-  width: 480px;
-  height: 320px;
+  width: 100%;
+  height: 100%;
   position: absolute;
   top: 0;
-  left: calc((100% - 480px) / 2);
+  left: 0;
 }
 
 .leftField {
-  width: 240px;
-  height: 320px;
+  width: 50%;
+  height: 100%;
   position: relative;
   z-index: 10;
 }
 
 .rightField {
-  width: 240px;
-  height: 320px;
+  width: 50%;
+  height: 100%;
   position: relative;
-  top: -320px;
-  left: 240px;
+  top: -100%;
+  left: 50%;
   z-index: 10;
 }
